@@ -1,5 +1,11 @@
+# Config file
 .env
+
+# Dependency directory
 node_modules
 .idea
+
+# Log file
 .log
+
 .iml
