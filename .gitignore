@@ -8,4 +8,8 @@ node_modules
 # Log file
 *.log
 
+# Coverage directory
+reports/
+screenshots/**/*.png
+
 *.iml
