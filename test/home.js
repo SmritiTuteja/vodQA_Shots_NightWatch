@@ -1,5 +1,4 @@
 let homePage;
-const env = require('env2')('./.env');
 
 export default {
     before(client) {
@@ -14,9 +13,8 @@ export default {
 
     'Launch App': (client) => {
         console.log('## Launching app ##');
-        client
-            .url(client.launchUrl)
-            .waitForElementPresent('body');
+        homePage.navigate();
+        client.waitForElementPresent('body');
         homePage.expect.element('@title').to.contain.text('WordPress.com');
         homePage.expect.element('@loginButton').to.be.visible;
     }
