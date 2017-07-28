@@ -1,0 +1,96 @@
+{
+  "src_folders": [
+    "test"
+  ],
+  "output_folder": "./reports",
+  "page_objects_path": "pages",
+  "globals_path": "./globals.js",
+  "selenium": {
+    "start_process": true,
+    "server_path": "./node_modules/nightwatch/bin/selenium.jar",
+    "host": "127.0.0.1",
+    "port": 4444,
+    "cli_args": {
+      "webdriver.chrome.driver": "./node_modules/nightwatch/bin/chromedriver",
+      "webdriver.gecko.driver": "./node_modules/geckodriver/geckodriver"
+    }
+  },
+  "test_settings": {
+    "default": {
+      "launch_url": "https://wordpress.com/",
+      "test_workers": {
+        "enabled": false,
+        "workers": "auto"
+      },
+      "screenshots": {
+        "enabled": true,
+        "path": "./screenshots",
+        "on_error": true,
+        "on_failure": true
+      }
+    },
+    "localChrome": {
+      "desiredCapabilities": {
+        "browserName": "chrome",
+        "javascriptEnabled": true,
+        "acceptSslCerts": true
+      }
+    },
+    "localFirefox": {
+      "desiredCapabilities": {
+        "browserName": "firefox",
+        "javascriptEnabled": true,
+        "acceptSslCerts": true,
+        "marionette": true,
+        "firefoxOptions": {
+          "prefs": {
+            "profile.permissions.default.image": 2,
+            "dom.ipc.plugins.enabled.libflashplayer.so": false
+          }
+        }
+      }
+    },
+    "headlessMacOSSafari": {
+      "desiredCapabilities": {
+        "browserName": "phantomjs",
+        "javascriptEnabled": true,
+        "acceptSslCerts": true,
+        "phantomjs.page.settings.userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/602.3.12 (KHTML, like Gecko) Version/10.0.2 Safari/602.3.12",
+        "phantomjs.binary.path": "./node_modules/.bin/phantomjs",
+        "phantomjs.cli.args": "--load-images=no"
+      }
+    },
+    "headlessMacOSChrome": {
+      "desiredCapabilities": {
+        "browserName": "phantomjs",
+        "javascriptEnabled": true,
+        "acceptSslCerts": true,
+        "phantomjs.page.settings.userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36",
+        "phantomjs.binary.path": "./node_modules/.bin/phantomjs"
+      }
+    },
+    "headlessIPadSafari": {
+      "desiredCapabilities": {
+        "browserName": "phantomjs",
+        "javascriptEnabled": true,
+        "acceptSslCerts": true,
+        "phantomjs.page.settings.userAgent": "Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B334b Safari/531.21.10",
+        "phantomjs.binary.path": "./node_modules/.bin/phantomjs",
+        "phantomjs.cli.args": "--load-images=no"
+      }
+    },
+    "iPadSimulator": {
+      "selenium_start_process": false,
+      "selenium_port": 4723,
+      "selenium_host": "127.0.0.1",
+      "silent": true,
+      "desiredCapabilities": {
+        "browserName": "Safari",
+        "platformName": "iOS",
+        "platformVersion": "10.2",
+        "deviceName": "iPad Air",
+        "automationName": "XCUITest"
+      }
+    }
+  }
+}
