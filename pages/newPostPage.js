@@ -1,15 +1,9 @@
 const newPostPageCommands = {
-    waitForPostEditorToLoad() {
-        return this.waitForElementPresent('@postEditor');
-    },
     enterPostTitle(title) {
         return this.setValue('@postTitle', title);
     },
     clickPreviewButton() {
         return this.click('@previewButton');
-    },
-    waitForPreviewModalToLoad() {
-        return this.waitForElementPresent('@previewModal');
     },
     closePreviewModal() {
         return this.click('@closePreviewModal');

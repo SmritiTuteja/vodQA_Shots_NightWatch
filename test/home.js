@@ -43,17 +43,21 @@ export default {
     'Write new post': (client) => {
         console.log('## Writing a New Post ##');
         myWordPressPage
-            .waitForMyWordPressPageToLoad()
+            .waitForElementPresent('@writePost')
             .writeNewPostButton();
-        newPostPage.waitForPostEditorToLoad()
+        newPostPage
+            .waitForElementPresent('@postEditor')
             .enterPostTitle('vodQA-Shots');
         client.waitForElementNotPresent('button[class*="editor-ground-control__preview-button"][disabled]');
-        newPostPage.clickPreviewButton()
-            .waitForPreviewModalToLoad();
+        newPostPage
+            .clickPreviewButton()
+            .waitForElementPresent('@previewModal');
         client.pause(3000);
-        newPostPage.closePreviewModal()
+        newPostPage
+            .closePreviewModal()
             .publishPost();
-        client.waitForElementPresent('div.notice.is-success')
+        client
+            .waitForElementPresent('div.notice.is-success')
             .expect.element('.notice__text').text.to.contain('Post published');
     }
 };
