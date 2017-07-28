@@ -1,4 +1,7 @@
 const homePageCommands = {
+    url() {
+        return this.api.launchUrl;
+    },
     clickLoginInButton() {
         return this.click('@loginButton');
     }

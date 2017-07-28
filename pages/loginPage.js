@@ -5,7 +5,9 @@ const loginPageCommands = {
     setPassword(password) {
         return this.setValue('@password', password);
     },
-    logIn() {
+    logIn(username, password) {
+        this.setUsername(username);
+        this.setPassword(password);
         return this.click('@logIn');
     }
 };

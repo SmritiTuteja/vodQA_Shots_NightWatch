@@ -4,7 +4,7 @@
   "scripts": {
     "test-local-chrome": "node ensureSeleniumJarExists.js && ./node_modules/.bin/nightwatch --config nightwatch.conf.js --env localChrome",
     "test-local-firefox": "node ensureSeleniumJarExists.js && ./node_modules/.bin/nightwatch --config nightwatch.conf.js --env localFirefox",
-    "test-headless-mac-chrome": "node ensureSeleniumJarExists.js && ./node_modules/.bin/nightwatch --config nightwatch.conf.js -t ./test/userJourney.js --env headlessMacOSChrome",
+    "test-headless-mac-chrome": "node ensureSeleniumJarExists.js && ./node_modules/.bin/nightwatch --config nightwatch.conf.js --env headlessMacOSChrome",
     "test-headless-mac-safari": "node ensureSeleniumJarExists.js && ./node_modules/.bin/nightwatch --config nightwatch.conf.js --env headlessMacOSSafari",
     "test-headless-iPad-safari": "node ensureSeleniumJarExists.js && ./node_modules/.bin/nightwatch --config nightwatch.conf.js --env headlessIPadSafari",
     "test-iPad-simulator": "node ensureSeleniumJarExists.js && ./node_modules/.bin/nightwatch --config nightwatch.conf.js --env iPadSimulator"

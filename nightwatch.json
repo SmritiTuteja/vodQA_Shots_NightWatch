@@ -4,6 +4,7 @@
   ],
   "output_folder": "./reports",
   "page_objects_path": "pages",
+  "live_output" : true,
   "globals_path": "./globals.js",
   "selenium": {
     "start_process": true,
@@ -19,7 +20,7 @@
     "default": {
       "launch_url": "https://wordpress.com/",
       "test_workers": {
-        "enabled": false,
+        "enabled": true,
         "workers": "auto"
       },
       "screenshots": {
