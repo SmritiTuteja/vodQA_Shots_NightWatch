@@ -6,6 +6,6 @@ node_modules
 .idea
 
 # Log file
-.log
+*.log
 
-.iml
+*.iml
