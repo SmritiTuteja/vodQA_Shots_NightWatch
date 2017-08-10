@@ -56,8 +56,7 @@ This would take care of:
     "test"
   ],
   "output_folder": "./reports",
-  "page_objects_path": "pages",
-  "live_output" : true,
+  "page_objects_path": "",
   "globals_path": "./globals.js",
   "selenium": {
     "start_process": true,
@@ -71,10 +70,6 @@ This would take care of:
   "test_settings": {
     "default": {
       "launch_url": "https://wordpress.com/",
-      "test_workers": {
-        "enabled": true,
-        "workers": "auto"
-      },
       "screenshots": {
         "enabled": true,
         "path": "./screenshots",
@@ -94,7 +89,47 @@ This would take care of:
 
 ```
 
-### 3. Create a tests folder in the project and write your first test file:
+### 3. package.json:
+
+```
+{
+  "name": "vodQA-NightWatch",
+  "description": "End to End tests",
+  "scripts": {
+    "test-local-chrome": "node ensureSeleniumJarExists.js && ./node_modules/.bin/nightwatch --config nightwatch.conf.js --env localChrome",
+  },
+  "dependencies": {
+    "babel-core": "^6.21.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-es2015": "^6.18.0",
+    "env2": "^2.2.0",
+    "nightwatch": "^0.9.11",
+    "npm": "^5.3.0",
+    "phantomjs": "2.1.1",
+    "selenium-download": "^2.0.9"
+  }
+}
+```
+
+### 4. ensureSeleniumJarExists.js:
+
+```
+/**
+ this checks for the existence of `selenium.jar` before trying to run tests.
+ */
+const BINPATH = './node_modules/nightwatch/bin/';
+
+require('fs').stat(BINPATH + 'selenium.jar', function (err, stat) {
+    if (err || !stat || stat.size < 1) {
+        require('selenium-download').ensure(BINPATH, function (error) {
+            if (error) throw new Error(error);
+            console.log(' Selenium & Chromedriver downloaded to:', BINPATH);
+        });
+    }
+});
+```
+
+### 5. Create a tests folder in the project and write your first test file:
 
 ```
 export default {
