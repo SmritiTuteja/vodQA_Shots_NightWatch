@@ -152,7 +152,7 @@ export default {
 };
 ```
 
-### 4. Run your tests:
+### 6. Run your tests:
 npm run test-local-chrome
 
 test-local-chrome is the script mentioned in the package.json file
